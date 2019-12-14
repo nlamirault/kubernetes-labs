@@ -1,0 +1,22 @@
+# Copyright (C) 2019 Skale-5 <ops@skale-5.com>
+---
+apiVersion: builtin
+kind: LabelTransformer
+metadata:
+  name: labelTransformer
+labels:
+  app.kubernetes.io/name: cilium
+  app.kubernetes.io/instance: cilium
+  app.kubernetes.io/component: cni
+  app.kubernetes.io/version: v1.6.0
+  app.kubernetes.io/part-of: portefaix
+  app.kubernetes.io/managed-by: kustomize
+fieldSpecs:
+- path: metadata/labels
+  create: true
+- kind: Deployment
+  path: spec/template/metadata/labels
+  create: true
+- kind: DaemonSet
+  path: spec/template/metadata/labels
+  create: true
