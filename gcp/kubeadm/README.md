@@ -4,14 +4,14 @@
 
 * Authentication and select project :
 
-```console
+```bash
 $ gcloud auth login
 $ gcloud config set project xxxxx
 ```
 
 * Setup VPC and network :
 
-```console
+```bash
 $ gcloud compute networks create portefaix-kubeadm-net --subnet-mode custom
 $ gcloud compute networks subnets create portefaix-kubeadm-subnet \
     --network portefaix-kubeadm-net \
@@ -20,7 +20,7 @@ $ gcloud compute networks subnets create portefaix-kubeadm-subnet \
 
 * Create the firewall rules :
 
-```console
+```bash
 $ gcloud compute firewall-rules create portefaix-kubeadm-allow-internal \
   --allow tcp,udp,icmp \
   --network portefaix-kubeadm-net \
@@ -33,7 +33,7 @@ $ gcloud compute firewall-rules create portefaix-kubeadm-allow-external \
 
 * Create the master :
 
-```console
+```bash
 $ gcloud compute instances create portefaix-kubeadm-master \
     --can-ip-forward \
     --subnet portefaix-kubeadm-subnet \
@@ -46,7 +46,7 @@ $ gcloud compute instances create portefaix-kubeadm-master \
 
 * Create the nodes :
 
-```console
+```bash
 $ for i in 0 1; do \
     gcloud compute instances create portefaix-kubeadm-node-${i} \
         --can-ip-forward \
@@ -65,7 +65,7 @@ On the master and nodes :
 
 * Prepare :
 
-```console
+```bash
 $ sudo apt-get update && sudo apt-get upgrade
 $ sudo apt-get install -y apt-transport-https curl
 $ sudo apt-get install docker.io
@@ -80,7 +80,7 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
 
 * On master, initialize the cluster :
 
-```console
+```bash
 $ export KUBE_ADDRESS=""
 $ sudo kubeadm init \
     --pod-network-cidr=192.168.0.0/16 \
@@ -90,25 +90,25 @@ $ sudo kubeadm init \
 
 * Configuration :
 
-```console
+```bash
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-```console
+```bash
 $ kubeadm token create --print-join-command
 ```
 
 then on each nodes :
 
-```console
+```bash
 $ kubeadm join x.x.x.x:6443 \
     --token xxxxxxxxxxxxx \
     --discovery-token-ca-cert-hash sha256:xxxxxxxxx
 ```
 
-```console
+```bash
 $ kubectl get nodes
 NAME                       STATUS     ROLES    AGE     VERSION
 portefaix-kubeadm-master   NotReady   master   17m     v1.17.0
@@ -120,18 +120,18 @@ portefaix-kubeadm-node-1   NotReady   <none>   2m37s   v1.17.0
 
 ### WeaveNet
 
-```console
+```bash
 $ sudo sysctl net.bridge.bridge-nf-call-iptables=1
 ```
 
 Then install WeaveNet :
 
-```console
+```bash
 $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```
 Check nodes :
 
-```console
+```bash
 $ kubectl get nodes
 NAME                       STATUS   ROLES    AGE     VERSION
 portefaix-kubeadm-master   Ready    master   20m     v1.17.0
