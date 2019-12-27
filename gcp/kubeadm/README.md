@@ -139,4 +139,25 @@ portefaix-kubeadm-node-0   Ready    <none>   4m49s   v1.17.0
 portefaix-kubeadm-node-1   Ready    <none>   5m10s   v1.17.0
 ```
 
-## Cleanup
+## Cleaning Up
+
+* Delete instances :
+
+```bash
+$ gcloud -q compute instances delete \
+    portefaix-kubeadm-master portefaix-kubeadm-node-0 portefaix-kubeadm-node-1
+```
+
+* Delete the firewall rules:
+
+```bash
+$ gcloud -q compute firewall-rules delete \
+    portefaix-kubeadm-allow-internal portefaix-kubeadm-allow-external
+```
+
+* Delete the network VPC:
+
+```bash
+$ gcloud -q compute networks subnets delete portefaix-kubeadm-subnet
+$ gcloud -q compute networks delete portefaix-kubeadm-net
+```
