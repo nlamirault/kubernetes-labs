@@ -12,7 +12,7 @@ Kubernetes workshops
 
 ### EKS
 
-<img width=86 height=86 align="left" src="docs/assets/eck.png">
+<img width=86 height=86 align="left" src="docs/assets/eks.png">
 
 **TODO**
 
