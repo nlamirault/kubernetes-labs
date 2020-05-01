@@ -2,7 +2,7 @@
 
 Kubernetes workshops
 
-## Kubernetes
+## Kubernetes
 
 ### GKE
 
