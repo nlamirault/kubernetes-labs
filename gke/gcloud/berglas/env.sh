@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export PROJECT_NAME="berglas"
+export PROJECT_NAME="portefaix"
 export ENV=dev
 export APP=${PROJECT_NAME}-${ENV}
 
@@ -26,10 +26,10 @@ export MACHINE_TYPE="n1-standard-2"
 export NETWORK="${APP}-network"
 export SUBNETWORK="${APP}-subnetwork"
 export SUBNETWORK_CIDR="10.10.0.0/20"
-export SUBNETWORK_PODS_NAME="${APP}-subnetwork-pods"
-export SUBNETWORK_PODS_CIDR="10.10.32.0/20"
 export SUBNETWORK_SVC_NAME="${APP}-subnetwork-svc"
 export SUBNETWORK_SVC_CIDR="10.10.16.0/20"
+export SUBNETWORK_PODS_NAME="${APP}-subnetwork-pods"
+export SUBNETWORK_PODS_CIDR="10.10.32.0/20"
 
 export NUM_NODES="1"
 export MIN_NODES="2"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Copyright (C) 2019-2020 Nicolas Lamirault <nicolas.lamirault@gmail.com>
 

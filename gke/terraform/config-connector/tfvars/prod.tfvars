@@ -27,20 +27,20 @@ customer = "portefaix"
 
 env = "prod"
 
-range = "10.30.0.0/20"
+range = "10.20.0.0/20"
 
-gke_pods_subnet_cidr     = "10.30.16.0/20"
-gke_services_subnet_cidr = "10.30.32.0/20"
+gke_services_subnet_cidr = "10.20.16.0/20"
+gke_pods_subnet_cidr     = "10.20.32.0/20"
 
 
 
 #####################################################################""
 # Kubernetes cluster
 
-name = "portefaix-prod-cluster-gke"
+name = "config-connector-tf-prod-cluster-gke"
 
-network        = "portefaix-prod-vpc"
-subnet_network = "portefaix-prod-subnetwork"
+network        = "config-connector-tf-prod-vpc"
+subnet_network = "config-connector-tf-prod-subnetwork"
 
 release_channel = "REGULAR"
 
@@ -49,9 +49,9 @@ network_config = {
   enable_ssh     = false
   private_master = false
   private_nodes  = true
-  # master_cidr    = "10.30.64.0/28"
-  pods_cidr     = "portefaix-prod-vpc-gke-pods-subnetwork"
-  services_cidr = "portefaix-prod-vpc-gke-services-subnetwork"
+  # master_cidr    = "10.20.64.0/28"
+  pods_cidr     = "config-connector-tf-prod-vpc-gke-pods"
+  services_cidr = "config-connector-tf-prod-vpc-gke-services"
 }
 
 master_ipv4_cidr_block = "10.31.64.0/28"
@@ -66,7 +66,7 @@ master_authorized_networks = [
 labels = {
   env      = "prod"
   customer = "portefaix"
-  usage    = "kubernetes"
+  service  = "kubernetes"
   made-by  = "terraform"
 }
 
@@ -112,7 +112,7 @@ preemptible = true
 # Firewall
 
 source_ranges = [
-  "10.33.0.0/20",
-  "10.33.16.0/20", # Pods
-  "10.33.32.0/20"  # Services
+  "10.20.0.0/20",
+  "10.20.16.0/20", # Services
+  "10.20.32.0/20"  # Pods
 ]
