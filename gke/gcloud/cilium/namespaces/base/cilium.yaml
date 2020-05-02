@@ -1,0 +1,11 @@
+# Copyright (C) 2019 Skale-5 <ops@skale-5.com>
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cilium
+  labels:
+    app.kubernetes.io/name: cilium
+    app.kubernetes.io/instance: cilium
+    app.kubernetes.io/version: v1
+    app.kubernetes.io/component: cilium

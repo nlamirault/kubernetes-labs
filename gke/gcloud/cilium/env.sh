@@ -15,20 +15,20 @@
 # limitations under the License.
 
 export PROJECT_NAME="cilium"
-export ENV=dev
-export APP=${PROJECT_NAME}-${ENV}
+export ENV="prod"
+export APP=${PROJECT_NAME}-gcloud-${ENV}
 
 export REGION="europe-west1"
 export NODE_LOCATIONS="europe-west1-c,europe-west1-d"
 
 export MACHINE_TYPE="n1-standard-2"
 
-export NETWORK="${APP}-network"
-export SUBNETWORK="${APP}-subnetwork"
+export NETWORK="${APP}"
+export SUBNETWORK="${APP}-net"
 export SUBNETWORK_CIDR="10.30.0.0/20"
-export SUBNETWORK_SVC_NAME="${APP}-subnetwork-svc"
+export SUBNETWORK_SVC_NAME="${APP}-gke-svc"
 export SUBNETWORK_SVC_CIDR="10.30.16.0/20"
-export SUBNETWORK_PODS_NAME="${APP}-subnetwork-pods"
+export SUBNETWORK_PODS_NAME="${APP}-gke-pods"
 export SUBNETWORK_PODS_CIDR="10.30.32.0/20"
 
 export NUM_NODES="1"

@@ -1,0 +1,10 @@
+# Copyright (C) 2019 Skale-5 <ops@skale-5.com>
+---
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+commonLabels:
+  app.kubernetes.io/part-of: portefaix
+  app.kubernetes.io/managed-by: kustomize
+resources:
+- cilium.yaml
+# - network-default-deny-all.yaml
