@@ -16,7 +16,7 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 bases:
 # - github.com/nlamirault/manifests/resources/knative-system/knative/base?ref=vx.y.z
-- github.com/nlamirault/manifests/resources/knative-system/knative-operator-crds/base?ref=feature/knative-with-operators
+- github.com/nlamirault/manifests/resources/knative-system/knative-operator-crds/base?ref=master # vx.y.z
 
 # transformers:
 # - metadataLabelTransformer.yaml
