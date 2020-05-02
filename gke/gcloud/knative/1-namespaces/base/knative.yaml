@@ -1,0 +1,31 @@
+# Copyright (C) 2019 Skale-5 <ops@skale-5.com>
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: knative-system
+  labels:
+    app.kubernetes.io/name: knative
+    app.kubernetes.io/instance: knative
+    app.kubernetes.io/version: v1
+    app.kubernetes.io/component: knative
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: knative-eventing
+  labels:
+    app.kubernetes.io/name: knative-eventing
+    app.kubernetes.io/instance: knative-eventing
+    app.kubernetes.io/version: v1
+    app.kubernetes.io/component: knative-eventing
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: knative-serving
+  labels:
+    app.kubernetes.io/name: knative-serving
+    app.kubernetes.io/instance: knative-serving
+    app.kubernetes.io/version: v1
+    app.kubernetes.io/component: knative-serving

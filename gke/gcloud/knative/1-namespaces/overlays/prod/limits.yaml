@@ -1,0 +1,48 @@
+# Copyright (C) 2019 Skale-5 <ops@skale-5.com>
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-container
+spec:
+  limits:
+  - default: # default limit values
+      cpu: 0.5m
+      memory: 512Mi
+    defaultRequest: # default requests value
+      cpu: 0.25m
+      memory: 256Mi
+    max:
+      memory: 1024Mi
+    min:
+      memory: 32Mi
+      type: Container
+    type: Container
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-pods
+spec:
+  limits:
+  - max:
+      cpu: 0.5m
+      memory: 512Mi
+    min:
+      cpu: 0.25m
+      memory: 256Mi
+    maxLimitRequestRatio:
+      cpu: 1.2m
+    type: Pod
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-storage
+spec:
+  limits:
+  - max:
+      storage: 10Gi
+    min:
+      storage: 1Gi
+    type: PersistentVolumeClaim
