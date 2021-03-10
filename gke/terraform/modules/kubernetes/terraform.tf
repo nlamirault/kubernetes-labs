@@ -12,7 +12,7 @@
 # limitations under the License.
 
 terraform {
-  required_version = "= 0.12.20"
+  required_version = "=0.14.8"
 
   required_providers {
     google      = ">= 3.14.0"
