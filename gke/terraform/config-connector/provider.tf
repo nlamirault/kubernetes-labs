@@ -13,7 +13,7 @@
 # limitations under the License.
 
 provider "google" {
-  version = "~> 3"
+  version = "~> 4.5.0"
   project = var.project
   region  = var.location
 }
